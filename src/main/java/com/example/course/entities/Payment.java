@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Payment implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -17,7 +19,7 @@ public class Payment implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Instant moment;
-	
+	@JsonIgnore
 	@OneToOne
 	@MapsId
 	private Order order;
